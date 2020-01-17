@@ -48,8 +48,8 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(/* CODE HERE */) {
-  /* CODE HERE */
+function processLength(list, callback) {
+  return callback(list.length)
 }
 
 /**
@@ -66,9 +66,9 @@ function processLength(/* CODE HERE */) {
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function processLastItem(stringlist, callback) {
+  return callback(stringlist[stringlist.length - 1])
+}    ///// stringlist.legth-1 is the index for the last item.
 
 /**
  * ### Challenge `processSum`
@@ -87,8 +87,12 @@ function processLastItem(/* CODE HERE */) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(numberList, callback) {
+  let adding = 0;         //// make a variable so you can store what you added up.
+  for (let i = 0; i < numberList.length; i++) {  /// for loop to go over everything in array.
+    adding += numberList[i]
+  }
+  return callback(adding)    /// adding is now the sum of all elements in array.
 }
 
 /**
@@ -109,8 +113,8 @@ function processSum(/* CODE HERE */) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+function processProduct(num1, num2, callback) {
+  return callback(num1 * num2)
 }
 
 /**
@@ -133,8 +137,8 @@ function processProduct(/* CODE HERE */) {
  * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
  * should return "sad".
 */
-function processContains(/* CODE HERE */) {
-  /* CODE HERE */
+function processContains(item, list, callback) {
+  return callback(list.includes(item))   //// .icludes is a method to see if characters are in a string , returns boolean.
 }
 
 /**
@@ -178,9 +182,13 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+function getFullNames(runners) {
+  const names = []    /// made a new array for all names in the string we made can be pushed into.
+  runners.forEach(person => names.push(`${person.last_name}, ${person.first_name}`))  // forEach is like a loop method, person is the name of the function or name of each element scanned in array.
+     //// names.push takes a parameter, person.last_name is the specific element in the array you want or selected.
+  return names
 }
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
