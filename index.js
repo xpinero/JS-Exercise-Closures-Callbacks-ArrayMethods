@@ -66,8 +66,8 @@ function processLength(list, callback) {
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(stringlist, callback) {
-  return callback(stringlist[stringlist.length - 1])
+function processLastItem(stringList, callback) {
+  return callback(stringList[stringList.length - 1])
 }    ///// stringlist.legth-1 is the index for the last item.
 
 /**
@@ -138,7 +138,7 @@ function processProduct(num1, num2, callback) {
  * should return "sad".
 */
 function processContains(item, list, callback) {
-  return callback(list.includes(item))   //// .icludes is a method to see if characters are in a string , returns boolean.
+  return callback(list.includes(item))   //// .includes is a method to see if characters are in a string , returns boolean.
 }
 
 /**
@@ -203,9 +203,9 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  let firstName = []
-  firstName = runners.map(person => person.first_name.toUpperCase());
-  return firstName;
+  let firstName = [];                //make empty array.
+  firstName = runners.map(person => person.first_name.toUpperCase());  // map method needs a random name to represent the value of each item it is going over in the array.
+  return firstName;     //// arrow functions in here are saying (x => do something with x here)
 }
 
 /**
@@ -222,7 +222,9 @@ function firstNamesAllCaps(runners) {
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
 function getRunnersByTShirtSize(runners, tShirtSize) {
-  
+  let shirtSize = [];
+  shirtSize = runners.filter(shirts => shirts.shirt_size === tShirtSize);
+  return shirtSize;
 }
 
 /**
