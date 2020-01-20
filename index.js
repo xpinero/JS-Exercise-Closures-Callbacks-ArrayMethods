@@ -160,8 +160,10 @@ function processContains(item, list, callback) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
-  /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+function processDuplicateFree(list, callback) {
+  return callback([...new Set(list)]);
+             /// or
+    // return list.filter((item, index) => {return list.indexOf(item) === index;});
 }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -237,8 +239,9 @@ function getRunnersByTShirtSize(runners, tShirtSize) {  //////////?????? why doe
  * @param runners array of runners like the one inside the /data/runners.js file.
  * @returns a number which is the sum of the donations by all runners.
 */
-function tallyUpDonations(/* CODE HERE */) {
-  /* CODE HERE */
+function tallyUpDonations(runners) {    ////////????????? how does this work?
+  let moneyDonated = runners.reduce((accumulator, element) => accumulator + element.donation, 0);  /// you can do like this or have a separate line for new array. Reduce combines all elements, the accumulator is holding the value of the elements every time they are added.
+  return moneyDonated;   /// notice the 0 is where the accumulator starts from.
 }
 
 /////////////// CLOSURES ///////////////
@@ -258,12 +261,10 @@ function tallyUpDonations(/* CODE HERE */) {
  * etc
 */
 function counterMaker() {
-  // BROKEN CODE STARTS
-  const count = 0;
-  function counter() {
-    ++count
+  let count = 0;
+  return function counter() {
+    return count++;
   }
-  // BROKEN CODE ENDS
 }
 
 /**
