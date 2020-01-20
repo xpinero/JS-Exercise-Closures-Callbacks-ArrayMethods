@@ -221,7 +221,7 @@ function firstNamesAllCaps(runners) {
  * @returns an array containing only the runners that use the given `tShirtSize`.
  * The runners in the array appear in the same order they appear in the `runners` array.
 */
-function getRunnersByTShirtSize(runners, tShirtSize) {
+function getRunnersByTShirtSize(runners, tShirtSize) {  //////////?????? why does this one not need a declared function?
   let shirtSize = [];
   shirtSize = runners.filter(shirts => shirts.shirt_size === tShirtSize);
   return shirtSize;
@@ -286,8 +286,16 @@ function counterMaker() {
  * counter() // should return 0
  * etc
 */
-function counterMakerWithLimit(/* CODE HERE */) {
-  /* CODE HERE */
+function counterMakerWithLimit(limit) {    ////////??????????????? what is going on here?????????????
+  let count = 0;
+  return function() {
+    if (count <= limit) {
+      return count++;
+    } else {
+      count = 0;
+      return count++;
+    }
+  }
 }
 
 /////////////// END OF CHALLENGE ///////////////
